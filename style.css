@@ -1,0 +1,24 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background-color: #6867ff;
+    display: flex;
+    justify-content: center;
+}
+
+#container {
+    background-color: #FEFEFE;
+    display: flex;
+    flex-wrap: wrap;
+    width: 85vh;
+    height: 85vh;
+    margin-top: 7.5vh;
+}
+
+.square16 {
+    flex: 1 1 6.25%;
+    height: 6.25%;    
+}
