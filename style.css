@@ -6,7 +6,8 @@
 body {
     background-color: #6867ff;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 #container {
@@ -24,4 +25,9 @@ body {
 
 .row, .square {
     flex: 1;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1.25em;
 }
