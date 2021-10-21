@@ -1,12 +1,17 @@
 const DEFAULT_GRID = 16;
-const MAX_GRID = 32;
+const MAX_GRID = 100;
 const container = document.querySelector('#container');
 const button = document.querySelector('button');
 
 createGrid();
 button.addEventListener('click', () => {
     clearGrid();
-    createGrid();
+    let newSize = Number(window.prompt(`How many squares per row for your new grid? (1 - ${ MAX_GRID })`, DEFAULT_GRID));
+    if (newSize > 0 && newSize <= MAX_GRID) {
+        createGrid(newSize);
+    } else {
+        createGrid();
+    }
 });
 
 function createGrid(gridSize = DEFAULT_GRID) {
