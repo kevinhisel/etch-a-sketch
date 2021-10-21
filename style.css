@@ -12,12 +12,16 @@ body {
 #container {
     background-color: #FEFEFE;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     width: 85vh;
     height: 85vh;
     margin-top: 7.5vh;
 }
 
-.square {
+.row {
+    display: flex;
+}
+
+.row, .square {
     flex: 1;
 }
