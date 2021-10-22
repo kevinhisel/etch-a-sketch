@@ -25,7 +25,7 @@ function createGrid(gridSize = DEFAULT_GRID) {
             row.appendChild(square);
 
             square.addEventListener('mouseover', () => {
-                square.style.backgroundColor = 'red';
+                square.style.backgroundColor = `hsl(${ Math.floor(Math.random() * 360) }, 100%, 50%)`;
             });
         }
     }
