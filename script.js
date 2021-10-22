@@ -2,11 +2,12 @@ const DEFAULT_GRID = 16;
 const MAX_GRID = 100;
 const container = document.querySelector('#container');
 const button = document.querySelector('button');
+let   lastGrid;
 
 createGrid();
 button.addEventListener('click', () => {
     clearGrid();
-    let newSize = Number(window.prompt(`How many squares per row for your new grid? (1 - ${ MAX_GRID })`, DEFAULT_GRID));
+    let newSize = Number(window.prompt(`How many squares per row for your new grid? (1 - ${ MAX_GRID })`, lastGrid));
     if (newSize > 0 && newSize <= MAX_GRID) {
         createGrid(newSize);
     } else {
@@ -23,12 +24,20 @@ function createGrid(gridSize = DEFAULT_GRID) {
             const square = document.createElement('div');
             square.className = 'square';
             row.appendChild(square);
-
+            
+            let lightness = 90;
+            let hue;
             square.addEventListener('mouseover', () => {
-                square.style.backgroundColor = `hsl(${ Math.floor(Math.random() * 360) }, 100%, 50%)`;
+                if (square.style.backgroundColor === '') {
+                    hue = Math.floor(Math.random() * 360);
+                    square.style.backgroundColor = `hsl(${ hue }, 100%, ${ lightness }%)`;
+                } else {
+                    square.style.backgroundColor = `hsl(${ hue }, 100%, ${ lightness -= 10 }%)`;
+                }
             });
         }
     }
+    lastGrid = gridSize;
 }
 
 function clearGrid() {
